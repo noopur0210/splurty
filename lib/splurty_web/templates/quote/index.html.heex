@@ -16,6 +16,7 @@
             </td>
             <td>
                 <%= link "Edit", to: Routes.quote_path(@conn, :edit, q.id) %>
+                <%= link "Delete", to: Routes.quote_path(@conn, :delete, q.id), method: :delete, data: [confirm: "Are you sure?"] %>
             </td>
         </tr>
     <% end %>

@@ -3,7 +3,6 @@ defmodule SplurtyWeb.QuoteController do
 
   alias Splurty.SplurtyDb
   alias Splurty.SplurtyDB.Quote
-  alias Splurty.Repo
 
   def homepage(conn, _params) do
     render(conn, "homepage.html")
@@ -56,5 +55,13 @@ defmodule SplurtyWeb.QuoteController do
     end
   end
 
+  def delete(conn, %{"id" => id}) do
+    q = SplurtyDb.get_quote!(id)
 
+    {:ok, _quote} = SplurtyDb.delete_quote(q)
+
+    conn
+    |> put_flash(:info, "Quote deleted successfully")
+    |> redirect(to: Routes.quote_path(conn, :index))
+  end
 end

@@ -18,9 +18,11 @@ defmodule Splurty.SplurtyDb do
 
   def get_quote!(id), do: Repo.get!(Quote, id)
 
-  def update_quote(%Quote{}, attrs) do
-    %Quote{}
+  def update_quote(%Quote{} = q, attrs) do
+    q
     |> Quote.changeset(attrs)
     |> Repo.update()
   end
+
+  def delete_quote(%Quote{} = q), do: Repo.delete(q)
 end
