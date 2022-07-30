@@ -3,6 +3,7 @@
         <tr>
             <th>Saying</th>
             <th>Author</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <%= for q <- @quotes do %>
@@ -12,6 +13,9 @@
             </td>
             <td>
                 <%= q.author %>
+            </td>
+            <td>
+                <%= link "Edit", to: Routes.quote_path(@conn, :edit, q.id) %>
             </td>
         </tr>
     <% end %>

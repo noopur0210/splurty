@@ -32,7 +32,29 @@ defmodule SplurtyWeb.QuoteController do
   end
 
   def show(conn, %{"id" => id}) do
-    q = SplurtyDb.get_room!(id)
+    q = SplurtyDb.get_quote!(id)
     render(conn, "show.html", quote: q)
   end
+
+  def edit(conn, %{"id" => id}) do
+    q = SplurtyDb.get_quote!(id)
+    changeset = SplurtyDb.change_quote(q)
+    render(conn, "edit.html", quote: q, changeset: changeset)
+  end
+
+  def update(conn, %{"id" => id, "quote" => quote_params}) do
+    q = SplurtyDb.get_quote!(id)
+
+    case SplurtyDb.update_quote(q, quote_params) do
+      {:ok, _quote} ->
+        conn
+        |> put_flash(:info, "Quote updated successfully")
+        |> redirect(to: Routes.quote_path(conn, :show, q))
+
+      {:error, %Ecto.Changeset{} = changeset} ->
+        render(conn, "edit.html", quote: q, changeset: changeset)
+    end
+  end
+
+
 end

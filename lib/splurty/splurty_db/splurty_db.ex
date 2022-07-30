@@ -16,6 +16,11 @@ defmodule Splurty.SplurtyDb do
     |> Repo.insert()
   end
 
-  def get_room!(id), do: Repo.get!(Quote, id)
+  def get_quote!(id), do: Repo.get!(Quote, id)
 
+  def update_quote(%Quote{}, attrs) do
+    %Quote{}
+    |> Quote.changeset(attrs)
+    |> Repo.update()
+  end
 end

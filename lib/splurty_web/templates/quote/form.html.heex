@@ -1,0 +1,17 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <div>
+    <%= label f, :saying %>
+    <%= textarea f, :saying, rows: 5 %>
+    <%= error_tag f, :saying %>
+  </div>
+
+  <div>
+    <%= label f, :author %>
+    <%= text_input f, :author %>
+    <%= error_tag f, :author %>
+  </div>
+
+  <div>
+    <%= submit "Submit" %>
+  </div>
+<% end %>
