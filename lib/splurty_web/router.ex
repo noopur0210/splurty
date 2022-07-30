@@ -19,6 +19,8 @@ defmodule SplurtyWeb.Router do
 
     get "/", QuoteController, :homepage
     get "/quotes", QuoteController, :index
+    get "/quotes/new", QuoteController, :new
+    post "/quotes", QuoteController, :create
   end
 
   # Other scopes may use custom stacks.

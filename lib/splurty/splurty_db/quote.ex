@@ -10,7 +10,7 @@ defmodule Splurty.SplurtyDB.Quote do
   end
 
   @doc false
-  def changeset(quote, attrs) do
+  def changeset(quote, attrs \\ %{}) do
     quote
     |> cast(attrs, [:saying, :author])
     |> validate_required([:saying])
