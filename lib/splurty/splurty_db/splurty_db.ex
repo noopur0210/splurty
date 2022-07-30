@@ -15,4 +15,7 @@ defmodule Splurty.SplurtyDb do
     |> Quote.changeset(attrs)
     |> Repo.insert()
   end
+
+  def get_room!(id), do: Repo.get!(Quote, id)
+
 end

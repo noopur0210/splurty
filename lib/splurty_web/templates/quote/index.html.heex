@@ -8,7 +8,7 @@
     <%= for q <- @quotes do %>
         <tr>
             <td>
-                <%= q.saying %>
+                <%= link q.saying, to: Routes.quote_path(@conn, :show, q.id) %>
             </td>
             <td>
                 <%= q.author %>
