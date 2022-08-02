@@ -49,7 +49,7 @@
       <%= @inner_content %>
     </main>
 
-    <footer class="navbar sticky-bottom">
+    <footer class="navbar footer fixed-bottom" style="padding: 0 10px 50px;">
       <div class="container-fluid">
         <div class="col-xs-6">
           <%= link "This isn't enough, I need more", to: Routes.quote_path(@conn, :index) %>

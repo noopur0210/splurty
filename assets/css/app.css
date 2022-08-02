@@ -57,9 +57,17 @@ form{margin-bottom:2.5rem}.button,button,input[type='button'],input[type='reset'
   color: #f84342;
 }
 
+.footer {
+  position: fixed;
+  padding: 10px 10px 0px 10px;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+}
+
 footer {
-  margin-bottom:20px;
-  margin-left:20px;
+  height: 30px;
+  background-color: white;
 }
 footer a {
   color:#f84342;
