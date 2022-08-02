@@ -1,7 +1,18 @@
-<h1>
-  <%= @quote.saying %>
-</h1>
-
-<h2>
-  <%= @quote.author %>
-</h2>
+<div class="page-content">
+  <figure class="text-center">
+    <h3>
+      <span>SPLURTY No. <%= @quote.id %></span>
+      You know <u>you need to learn Elixir</u> because...
+    </h3>
+    <blockquote class="blockquote">
+      <h1>
+        <%= @quote.saying %>
+      </h1>
+    </blockquote>
+    <blockquote class="blockquote">
+      <h2>
+        - <%= @quote.author %>
+      </h2>
+    </blockquote>
+  </figure>
+</div>

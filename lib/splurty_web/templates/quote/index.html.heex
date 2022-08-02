@@ -1,6 +1,7 @@
-<table>
+<table class="table table-danger table-striped">
     <thead>
         <tr>
+            <th> # </th>
             <th>Saying</th>
             <th>Author</th>
             <th>Actions</th>
@@ -8,6 +9,7 @@
     </thead>
     <%= for q <- @quotes do %>
         <tr>
+            <td> <%= q.id %> </td>
             <td>
                 <%= link q.saying, to: Routes.quote_path(@conn, :show, q.id) %>
             </td>
@@ -15,8 +17,8 @@
                 <%= q.author %>
             </td>
             <td>
-                <%= link "Edit", to: Routes.quote_path(@conn, :edit, q.id) %>
-                <%= link "Delete", to: Routes.quote_path(@conn, :delete, q.id), method: :delete, data: [confirm: "Are you sure?"] %>
+                <%= link "Edit", to: Routes.quote_path(@conn, :edit, q.id), class: "btn btn-info", style: "margin: 0 20px 5px;" %>
+                <%= link "Delete", to: Routes.quote_path(@conn, :delete, q.id), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger", style: "margin: 0 20px 5px;" %>
             </td>
         </tr>
     <% end %>

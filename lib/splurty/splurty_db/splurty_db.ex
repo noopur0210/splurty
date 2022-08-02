@@ -27,7 +27,7 @@ defmodule Splurty.SplurtyDb do
   def delete_quote(%Quote{} = q), do: Repo.delete(q)
 
   def get_random do
-    query = Ecto.Adapters.SQL.query(Splurty.Repo,
+    query = Ecto.Adapters.SQL.query(Repo,
       "SELECT id FROM quotes ORDER BY RANDOM() LIMIT 1"
     )
     {:ok, %Postgrex.Result{rows: [[id]]}} = query
