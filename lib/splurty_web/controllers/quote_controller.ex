@@ -5,8 +5,8 @@ defmodule SplurtyWeb.QuoteController do
   alias Splurty.SplurtyDB.Quote
 
   def homepage(conn, _params) do
-    # q = SplurtyDb.get_random()
-    render(conn, "homepage.html")
+    q = SplurtyDb.get_random()
+    render(conn, "show.html", quote: q)
   end
 
   def index(conn, _params) do
